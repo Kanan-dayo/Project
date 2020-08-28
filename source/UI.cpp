@@ -16,6 +16,7 @@
 #include "tutorial.h"
 #include "kananlibrary.h"
 #include "inputGamepad.h"
+#include "sound.h"
 
 //==================================================================================================================
 // マクロ定義
@@ -1054,11 +1055,15 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 		{
 			// モード0
 			m_nMode = 0;
+			// 効果音再生
+			CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 		}
 		else if (fValueX0 > 0 || fValueX1 > 0)
 		{// 右に傾けたとき
 			// モード1
 			m_nMode = 1;
+			// 効果音再生
+			CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 		}
 	}
 	else if (CRenderer::GetMode() == CRenderer::MODE_TUTORIAL)
@@ -1083,6 +1088,9 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 
 					// スティックを戻したかどうか
 					m_bStickReturn[0] = false;
+
+					// 効果音再生
+					CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 				}
 				else if (fValueX0 > 0)
 				{// 右に傾けたとき
@@ -1097,6 +1105,9 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 
 					// スティックを戻したかどうか
 					m_bStickReturn[0] = false;
+
+					// 効果音再生
+					CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 				}
 
 				// 決定ボタンを押したとき
@@ -1104,6 +1115,8 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 				{
 					// キャラクターを選択した状態にする
 					m_bCharaDecide[0] = true;
+					// 効果音再生
+					CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_DECISION);
 				}
 			}
 
@@ -1145,6 +1158,9 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 
 					// スティックが戻っていない状態にする
 					m_bStickReturn[1] = false;
+
+					// 効果音再生
+					CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 				}
 				else if (fValueX1 > 0)
 				{
@@ -1159,6 +1175,9 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 
 					// スティックが戻っていない状態にする
 					m_bStickReturn[1] = false;
+
+					// 効果音再生
+					CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 				}
 
 				// 決定ボタンを押したとき
@@ -1166,6 +1185,8 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 				{
 					// キャラクターを選択した状態にする
 					m_bCharaDecide[1] = true;
+					// 効果音再生
+					CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_DECISION);
 				}
 			}
 
@@ -1196,11 +1217,15 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 			{
 				// マップ番号1減算
 				m_nMapID -= 1;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (fValueX0 > 0)
 			{// 右に傾けたとき
 				// マップ番号1加算
 				m_nMode += 1;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 
 			// 上に傾けたとき
@@ -1208,11 +1233,15 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 			{
 				// マップ番号-2
 				m_nMapID -= 2;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (fValueY0 > 0)
 			{// 下に傾けたとき
 				// マップ番号+2
 				m_nMapID += 2;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 
 			// 決定ボタンを押したとき
@@ -1220,6 +1249,8 @@ void CUI::ControlGamepad(CInputGamepad * pGamepad0, CInputGamepad *pGamepad1)
 			{
 				// マップを選択した状態にする
 				m_bMapSelect = true;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_DECISION);
 			}
 		}
 	}
@@ -1236,20 +1267,28 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 		if (pKeyboard->GetKeyboardTrigger(DIK_RIGHTARROW))
 		{
 			m_nMode = 1;
+			// 効果音再生
+			CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 		}
 		else if (pKeyboard->GetKeyboardTrigger(DIK_LEFTARROW))
 		{// キーボードの[←]を押したとき
 			m_nMode = 0;
+			// 効果音再生
+			CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 		}
 
 		// キーボードの[D]を押したとき
 		if (pKeyboard->GetKeyboardTrigger(DIK_D))
 		{
 			m_nMode = 1;
+			// 効果音再生
+			CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 		}
 		else if (pKeyboard->GetKeyboardTrigger(DIK_A))
 		{// キーボードの[A]を押したとき
 			m_nMode = 0;
+			// 効果音再生
+			CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 		}
 	}
 	else if (CRenderer::GetMode() == CRenderer::MODE_TUTORIAL)
@@ -1269,6 +1308,9 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 
 				// 位置移動用カウンタ初期化
 				m_fPosMove[0] = 0;
+
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (pKeyboard->GetKeyboardTrigger(ONE_RIGHT))
 			{// キーボードの[D]が押されたとき
@@ -1280,6 +1322,9 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 
 				// 位置移動用カウンタ初期化
 				m_fPosMove[0] = 0;
+
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 
 			// 1Pが決定ボタンをおしたとき
@@ -1287,6 +1332,8 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 			{
 				// キャラクターを選択した状態にする
 				m_bCharaDecide[0] = true;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_DECISION);
 			}
 		}
 		else
@@ -1313,6 +1360,9 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 
 				// 位置移動用カウンタ初期化
 				m_fPosMove[1] = 0;
+
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (pKeyboard->GetKeyboardTrigger(TWO_RIGHT))
 			{// キーボードの[→]が押されたとき
@@ -1324,6 +1374,9 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 
 				// 位置移動用カウンタ初期化
 				m_fPosMove[1] = 0;
+
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 
 			// 2Pが決定ボタンをおしたとき
@@ -1331,6 +1384,8 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 			{
 				// キャラクターを選んだ状態にする
 				m_bCharaDecide[1] = true;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_DECISION);
 			}
 		}
 		else
@@ -1354,21 +1409,29 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 			{
 				// マップID小さくなる
 				m_nMapID -= 1;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (pKeyboard->GetKeyboardTrigger(ONE_RIGHT))
 			{// 1Pが右入力をしたとき
 				// マップID大きくなる
 				m_nMapID += 1;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (pKeyboard->GetKeyboardTrigger(ONE_UP))
 			{// 1Pが上入力をしたとき
 				// マップID-2する
 				m_nMapID -= 2;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 			else if (pKeyboard->GetKeyboardTrigger(ONE_DOWN))
 			{// 1Pがした入力をしたとき
 				// まっぷID+2する
 				m_nMapID += 2;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_CURSORMOVE);
 			}
 
 			// 1Pが決定ボタンを押したとき
@@ -1376,6 +1439,8 @@ void CUI::ControlKeyboard(CInputKeyboard * pKeyboard)
 			{
 				// マップを選んだ状態にする
 				m_bMapSelect = true;
+				// 効果音再生
+				CRenderer::GetSound()->PlaySound(CSound::SOUND_LABEL_SE_DECISION);
 			}
 		}
 	}
