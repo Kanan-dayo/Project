@@ -90,6 +90,8 @@ public:
 
 	inline bool				 GetbMotionAttack(void);				// モーションの攻撃判定の取得
 	inline bool				 GetStoneType(int nID)				{ return m_bGetStoneType[nID]; }	// 取得したストーンタイプ取得
+	inline bool				 GetTrans(void)						{ return m_bTrans; }				// 変身したかどうか
+	inline int				 GetTransCnt(void)					{ return m_nCntTrans; }				// 変身カウント取得
 
 	void			   Daunted(const int nGap);						// 怯み処理
 	void			   VictoryAction(void);							// 勝利行動

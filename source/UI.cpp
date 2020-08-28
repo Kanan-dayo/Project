@@ -912,6 +912,10 @@ void CUI::GameUpdate(void)
 			m_nCharaNum[0] = pPlayer0->GetCharaType();
 			m_nCharaNum[1] = pPlayer1->GetCharaType();
 
+			// 変身状況取得
+			m_bTransform[0] = pPlayer0->GetTrans();
+			m_bTransform[1] = pPlayer1->GetTrans();
+
 			// 最大石までカウント
 			for (int nCntStone = 0; nCntStone < CStone::STONE_ID_MAX; nCntStone++)
 			{
@@ -950,6 +954,18 @@ void CUI::GameUpdate(void)
 				SetUI(D3DXVECTOR3(275, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYBULE, NORMAL_COLOR);
 			}
 		}
+		else
+		{
+			// 宝石背景1P
+			SetUI(D3DXVECTOR3(200, STONE_POS_Y, 0), 210, STONE_SIZE_Y, LOGOTYPE_JEWELRYBG1P, AlphaColor);
+			// 宝石赤
+			SetUI(D3DXVECTOR3(125, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYRED, AlphaColor);
+			// 宝石青
+			SetUI(D3DXVECTOR3(200, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYGREEN, AlphaColor);
+			// 宝石緑
+			SetUI(D3DXVECTOR3(275, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYBULE, AlphaColor);
+
+		}
 
 		if (!m_bTransform[1])
 		{
@@ -976,7 +992,17 @@ void CUI::GameUpdate(void)
 				// 宝石緑
 				SetUI(D3DXVECTOR3(1155, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYBULE, NORMAL_COLOR);
 			}
-
+		}
+		else
+		{
+			// 宝石背景2P
+			SetUI(D3DXVECTOR3(1080, STONE_POS_Y, 0), 210, STONE_SIZE_Y, LOGOTYPE_JEWELRYBG2P, AlphaColor);
+			// 宝石赤
+			SetUI(D3DXVECTOR3(1005, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYRED, AlphaColor);
+			// 宝石青
+			SetUI(D3DXVECTOR3(1080, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYGREEN, AlphaColor);
+			// 宝石緑
+			SetUI(D3DXVECTOR3(1155, STONE_POS_Y, 0), STONE_SIZE_X, STONE_SIZE_Y, LOGOTYPE_JEWELRYBULE, AlphaColor);
 		}
 
 		// 1PキャラクターUI

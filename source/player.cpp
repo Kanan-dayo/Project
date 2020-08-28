@@ -33,6 +33,7 @@
 #include "hitpoint.h"
 #include "PolygonCollider.h"
 #include "CapsuleCollider.h"
+#include "transformBar.h"
 
 //==================================================================================================================
 // マクロ定義
@@ -46,6 +47,7 @@
 // 静的メンバ変数の初期化
 //==================================================================================================================
 CHitPoint *CPlayer::m_pHitPoint = NULL;				// HP情報
+CTransformBar *CPlayer::m_pTransBar = NULL;			// 変身情報
 
 //==================================================================================================================
 // コンストラクタ
@@ -84,6 +86,9 @@ void CPlayer::Init(void)
 
 	m_pHitPoint = CHitPoint::Create(m_nPlayer, m_param.fMaxLife);	// プレイヤーの生成処理
 	m_pHitPoint->SetnPlayerNum(m_nPlayer);							// プレイヤー番号設定
+
+	m_pTransBar = CTransformBar::Create(m_nPlayer, TIME_TRANS);		// 変身バー生成
+	m_pTransBar->SetnPlayerNum(m_nPlayer);							// プレイヤー番号設定
 }
 
 //==================================================================================================================

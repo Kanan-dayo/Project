@@ -32,6 +32,7 @@ class CInputKeyboard;
 class CInputGamepad;
 class CFade;
 class CHitPoint;
+class CTransformBar;
 
 //==================================================================================================================
 //
@@ -75,6 +76,7 @@ private:
 	void CollisionAttack(void);						// 攻撃判定
 
 	static CHitPoint *m_pHitPoint;					// HP情報
+	static CTransformBar *m_pTransBar;				// 変身バー情報
 
 	void ControlGamepad(CInputGamepad *pGamepad);	// ゲームパッド操作
 	void ControlKeyboard(CInputKeyboard *pKeyboard);// キーボード操作
